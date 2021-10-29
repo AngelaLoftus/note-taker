@@ -36,9 +36,9 @@ router.post('/notes', (req, res) => {
         notes.push(newNote); 
         
         writeFileAsync('./db/db.json', JSON.stringify(notes));
-        return newNote; 
+        return res.json(newNote);     
     });    
-    res.json(newNote);
+    
 });
 
 //delete route to delete a note upon button click using array methods
