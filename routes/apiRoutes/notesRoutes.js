@@ -47,27 +47,28 @@ router.delete('/notes/:id', (req, res) => {
     console.log('delete route hit');
     //must read the existing data file
     readFileAsync('./db/db.json', 'utf8').then(notes => { 
+        notes = JSON.parse(notes);
         
         //for loop to check the ids in the array
         for (let i = 0; i< notes.length; i ++) { 
         
         //turn the notes id from string into an integer
-        let notesid = parseInt(req.params.id);
-
         //check the search parameter on delete button click
-        console.log("req.params.id", req.params.id);
-        console.log("notes id", notesid); 
-
-        notes = JSON.parse(notes);
-        
-        //delete note from the array
-        notes.splice(notes[i], 1);
     
-        //rewrite the file
-        writeFileAsync('./db/db.json', JSON.stringify(notes));
-        //return the updated files without the deleted file
-        return res.json(notes); 
+        if (notes[i].id === req.params.id) {
+            console.log("notes[i].id", notes[i].id);
+            console.log("req.params.id", req.params.id);
+
+            //delete note from the array
+            notes.splice(i, 1);
+
+            //rewrite the file
+            writeFileAsync('./db/db.json', JSON.stringify(notes));
+            //return the updated files without the deleted file
+            return res.json(notes); 
         }
+    }
+   
     });        
 });
 
