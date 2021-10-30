@@ -34,3 +34,6 @@
 ## Link to Github Repository 
 
 - https://github.com/AngelaLoftus/note-taker 
+
+## Screenshots
+
