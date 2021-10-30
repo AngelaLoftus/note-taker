@@ -37,3 +37,5 @@
 
 ## Screenshots
 
+![Screenshot](https://github.com/AngelaLoftus/note-taker/blob/main/images/Screenshot1.jpg)
+![Screenshot](https://github.com/AngelaLoftus/note-taker/blob/main/images/Screenshot2.jpg)
